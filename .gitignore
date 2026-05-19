@@ -1,0 +1,44 @@
+# Hermes Profile Distribution - Git Ignore Rules
+# ====================================================
+# 這些文件應該被版本控制，可以安全地推送到 Git
+
+# ✅ 包含在分佈中的文件（配置文件）
+config.yaml           # Main user configuration
+channel_directory.json         # Channel definitions
+auth.json                      # OAuth authentication status  
+context_length_cache.yaml      # Context length cache
+gateway_voice_mode.json        # Voice mode settings
+gateway_state.json             # Gateway state
+
+# 🎯 示例配置模板（需要被添加到 Git）
+config-example.yaml   # Example/template configuration
+
+# 🚫 絕對不要提交以下文件（敏感數據、臨時文件）
+.env                 # API 密鑰、Token - 環境變量文件
+sessions/            # 會話歷史記錄 - 可能包含敏感對話
+memories/            # AI 記憶數據 - 用戶隱私數據
+logs/                # 日誌文件
+state.db*            # Redis/Memcached 狀態數據庫
+.cache/              # 緩存數據
+
+# 臨時文件和備份
+*.pyc
+__pycache__/
+*.pyo
+.env.bak
+config.yaml.bak.*
+gateway.lock
+gateway.pid
+*.tmp
+*.bak
+
+# IDE 配置（可選，根據團隊偏好）
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS 文件
+.DS_Store
+Thumbs.db
